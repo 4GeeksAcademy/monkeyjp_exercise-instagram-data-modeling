@@ -21,16 +21,14 @@ class Post(Base):
     __tablename__ = 'post'
     id = Column(Integer, primary_key=True)
     userId = Column(Integer, ForeignKey('user.id'))
-    created_at = Column(String)
-    total_likes = Column(Integer)
-    total_comments = Column(Integer)
+    created_at = Column(String(50))
 
 class Post_comments(Base):
     __tablename__ = 'post_comments'
     id = Column(Integer, primary_key=True)
     postId = Column(Integer)
     userId = Column(Integer, ForeignKey('post.id'))
-    created_at = Column(String)
+    created_at = Column(String(50))
     comment = Column(Integer)
 
 class Post_likes(Base):
@@ -38,7 +36,7 @@ class Post_likes(Base):
     id = Column(Integer, primary_key=True)
     postId = Column(Integer, ForeignKey('post.id'))
     userId = Column(Integer)
-    created_at = Column(String)
+    created_at = Column(String(50))
 
 
 class Photo(Base):
@@ -46,14 +44,14 @@ class Photo(Base):
     id = Column(Integer, primary_key=True)
     postId = Column(Integer, ForeignKey('post.id'))
     userId = Column(Integer)
-    url = Column(String)
+    url = Column(String(80))
 
 class User_followers(Base):
     __tablename__ = 'user_followers'
     id = Column(Integer, primary_key=True)
     userId = Column(Integer, ForeignKey('user.id'))
     followerId = Column(Integer)
-    follow_at = Column(String)
+    follow_at = Column(String(50))
 
 
 
